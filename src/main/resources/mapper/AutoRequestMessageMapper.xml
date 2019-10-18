@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inspur.auto.mappers.AutoRequestMessageMapper">
+  <resultMap id="BaseResultMap" type="com.inspur.auto.entity.po.AutoRequestMessage">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="expected_result_id" jdbcType="VARCHAR" property="expectedResultId" />
+    <result column="end_point" jdbcType="VARCHAR" property="endPoint" />
+    <result column="message" jdbcType="VARCHAR" property="message" />
+  </resultMap>
+</mapper>

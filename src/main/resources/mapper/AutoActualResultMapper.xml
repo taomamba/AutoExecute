@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inspur.auto.mappers.AutoActualResultMapper">
+  <resultMap id="BaseResultMap" type="com.inspur.auto.entity.po.AutoActualResult">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="plat_form_id" jdbcType="VARCHAR" property="platFormId" />
+    <result column="case_code" jdbcType="VARCHAR" property="caseCode" />
+    <result column="batch_id" jdbcType="VARCHAR" property="batchId" />
+    <result column="actual_result" jdbcType="VARCHAR" property="actualResult" />
+    <result column="excute_time" jdbcType="TIMESTAMP" property="excuteTime" />
+  </resultMap>
+
+
+</mapper>

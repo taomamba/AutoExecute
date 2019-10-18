@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inspur.auto.mappers.AutoExpectedResultMapper">
+  <resultMap id="BaseResultMap" type="com.inspur.auto.entity.po.AutoExpectedResult">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="plat_form_id" jdbcType="VARCHAR" property="platFormId" />
+    <result column="case_code" jdbcType="VARCHAR" property="caseCode" />
+    <result column="excepted_result" jdbcType="VARCHAR" property="exceptedResult" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+
+  <select id="selectIdsByFormId" parameterType="String" resultMap="BaseResultMap">
+   SELECT id FROM t_auto_expected_result WHERE plat_form_id = #{platFormId}
+  </select>
+
+
+  <update id="batchUpdateExpectedResult" parameterType="java.util.List">
+    update t_auto_expected_result
+    set excepted_result =
+    <foreach collection="autoExpectedResults" item="autoExpectedResult" open="case " close=" end">
+      when plat_form_id = #{autoExpectedResult.platFormId} AND case_code = #{autoExpectedResult.caseCode} then #{autoExpectedResult.exceptedResult}
+    </foreach>
+    <where>
+      <foreach collection="autoExpectedResults" item="autoExpectedResult" open="( " separator=") or (" close=" )">
+        plat_form_id = #{autoExpectedResult.platFormId} AND case_code = #{autoExpectedResult.caseCode}
+      </foreach>
+    </where>
+  </update>
+
+</mapper>
